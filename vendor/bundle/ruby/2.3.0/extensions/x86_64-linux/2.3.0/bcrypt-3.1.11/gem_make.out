@@ -1,0 +1,19 @@
+current directory: /home/paxoth/Documentos/Universidad/PIINFO/ComunitApp/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.11/ext/mri
+/usr/bin/ruby2.3 -r ./siteconf20170510-25698-1x1vx3e.rb extconf.rb
+creating Makefile
+
+current directory: /home/paxoth/Documentos/Universidad/PIINFO/ComunitApp/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.11/ext/mri
+make "DESTDIR=" clean
+
+current directory: /home/paxoth/Documentos/Universidad/PIINFO/ComunitApp/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.11/ext/mri
+make "DESTDIR="
+compiling bcrypt_ext.c
+compiling crypt.c
+compiling crypt_blowfish.c
+compiling crypt_gensalt.c
+compiling wrapper.c
+linking shared-object bcrypt_ext.so
+
+current directory: /home/paxoth/Documentos/Universidad/PIINFO/ComunitApp/vendor/bundle/ruby/2.3.0/gems/bcrypt-3.1.11/ext/mri
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bcrypt_ext.so ./.gem.20170510-25698-wod6y2

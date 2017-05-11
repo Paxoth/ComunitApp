@@ -1,0 +1,19 @@
+current directory: /home/paxoth/Documentos/Universidad/PIINFO/ComunitApp/vendor/bundle/ruby/2.3.0/gems/byebug-9.0.6/ext/byebug
+/usr/bin/ruby2.3 -r ./siteconf20170510-25698-1d83rec.rb extconf.rb
+creating Makefile
+
+current directory: /home/paxoth/Documentos/Universidad/PIINFO/ComunitApp/vendor/bundle/ruby/2.3.0/gems/byebug-9.0.6/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /home/paxoth/Documentos/Universidad/PIINFO/ComunitApp/vendor/bundle/ruby/2.3.0/gems/byebug-9.0.6/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.so
+
+current directory: /home/paxoth/Documentos/Universidad/PIINFO/ComunitApp/vendor/bundle/ruby/2.3.0/gems/byebug-9.0.6/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.so ./.gem.20170510-25698-1tc8ks0/byebug
