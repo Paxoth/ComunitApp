@@ -9,6 +9,16 @@
 	<body>
 		<%= render 'partials/navigation'%>
 		<p class="alert"><%= alert %></p>
+		<p>Dentro de las carpetas del programa existe las vistas se ven en app/views</p>
+		<p>Las vistas se heredan, por lo que lo que se mostrará para todas las vistas debe hacerse en la vista principal en app/views/layout/aplication.html.erb</p>
+		<p>Existe una vistas llamadas vistas parciales, que están en la carpeta app/views/partials y las vistas parciales tienen el nombre que comienza con guíon bajo</p>
+		<p>Las vistas parciales es para escribir trozos de código html que puedes importar a otras vistas</p>
+		<p>Hasta ahora existe solo una vista parcial, llamada _navigation, que esta importada justo arriba de donde está escrito este texto.</p>
+		<p>el archivo _navigation.html.erb es la vista parcial que tendrá toda la info de las barras navegadoras y menus laterales</p>
+
+		<p>Los css y js, solo se deben crear en la carpeta app/assets/... y se importarán automáticamente</p>
+
+		<p>EL código que está abajo que dice "yield" es un bloque que contiene la información de las demás vistas, omo por ejemplo app/views/publications/index.html.erb</p>
 		<%= yield %>
 	</body>
 </html>
