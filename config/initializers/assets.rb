@@ -10,13 +10,6 @@ Rails.application.config.assets.version = '1.0'
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
 Rails.application.config.assets.precompile += %w( main.css )
-Rails.application.config.assets.precompile += %w( index.css )
 Rails.application.config.assets.precompile += %w( dropdown.css )
-Rails.application.config.assets.precompile += %w( form.css )
 Rails.application.config.assets.precompile += %w( timeline.css )
-
-
-Rails.application.config.assets.precompile += %w( main.js )
-Rails.application.config.assets.precompile += %w( util.js )
 Rails.application.config.assets.precompile += %w( solicitante.css )
-Rails.application.config.assets.precompile += %w( dropdown.css )

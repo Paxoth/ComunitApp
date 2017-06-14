@@ -1,31 +1,19 @@
 <header id="header" class="alt">
-	<%= link_to '<strong>ComunitApp</strong><span> por Jellyper Software </span>'.html_safe, root_path, :class=> "logo" %>
-	
+	<%=link_to '<strong>ComunitApp</strong><span> por Jellyper Software </span>'.html_safe,root_path, :class=>'logo'%>
 	<nav>
 		<a href="#menu">Menu</a>
 	</nav>
 </header>
 <nav id="menu">
 	<%=image_tag("logoComunitApp.png", :class=>"menulogo") %>
-	
-	<%if !user_signed_in?%>
-		<ul class="links">
-			<li><a href="index.html">Inicio</a></li>
-			<li><a href="solicitante_login.html">Solicitantes</a></li>
-			<li><a href="especialista_login.html">Especialistas</a></li>
-			<li><a href="#">Sobre ComunitApp</a></li>
-		</ul>
-		<ul class="actions vertical">
-			<li><a href="solicitante_login.html" class="button special fit">Comienza como solicitante</a></li>
-			<li><a href="especialista_login.html" class="button fit">Comienza como especialista</a></li>
-		</ul>
-	<%else%>
-		<ul class="links">
-			<li><a href="index.html">Inicio</a></li>
-			<li><a href="#">Sobre ComunitApp</a></li>
-			<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-		</ul>
-		<ul class="actions vertical">
-		</ul>		
-	<%end%>				
+	<ul class="links">
+		<li><a href="index.html">Inicio</a></li>
+		<li><a href="solicitante_login.html">Solicitantes</a></li>
+		<li><a href="especialista_login.html">Especialistas</a></li>
+		<li><a href="#">Sobre ComunitApp</a></li>
+	</ul>
+	<ul class="actions vertical">
+		<li><a href="solicitante_login.html" class="button special fit">Comienza como solicitante</a></li>
+		<li><a href="especialista_login.html" class="button fit">Comienza como especialista</a></li>
+	</ul>						
 </nav>
