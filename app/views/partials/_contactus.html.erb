@@ -1,0 +1,77 @@
+<section id="contact" class="DarkOrangeFont">
+	<%if(controller.controller_name=="publications")%>
+		<div>	
+			<p id="notice"><%= notice %></p>
+			<h3 style="text-align: center;">SOBRE COMUNITAPP</h3>
+			<% @publications.each do |publication| %>
+				<div class="col-md-6">
+					<div class="panel panel-default panel-comunitApp">
+						<div class="panel-heading">
+							<%= publication.title.upcase %> <%=l publication.created_at%>
+						</div>
+						<div class="panel-body">
+							<%= publication.body %>
+						</div>
+					</div>
+				</div>
+			<%end%>
+			<%if user_signed_in?%>
+				<%if current_user.user_type==2%><!--2 para ADMIN-->
+					<%= link_to 'Agregar noticia', new_publication_path %>
+				<%end%>
+			<%end%>	
+
+		</div>
+	<%end%>
+	<div class="inner">
+		<section class="DarkOrangeFont" >
+			<h1>¡Contáctanos!</h1>
+			<form method="post" action="#">
+				<div class="field half first">
+					<label for="name">Nombre</label>
+					<input type="text" name="name" id="name" />
+				</div>
+				<div class="field half">
+					<label for="email">Correo electrónico</label>
+					<input type="text" name="email" id="email" />
+				</div>
+				<div class="field">
+					<label for="message">Escribe tu mensaje</label>
+					<textarea name="message" id="message" rows="6"></textarea>
+				</div>
+				<ul class="actions">
+					<li><input type="submit" value="Enviar mensaje" class="special btn-fit" /></li>
+					<li><input type="reset" value="Borrar" class="btn-fit" /></li>
+				</ul>
+			</form>
+		</section>
+		<section class="split">
+			<section>
+				<div class="contact-method">
+					<span class="icon alt fa-envelope"></span>
+					<h3>Nuestro Correo</h3>
+					<a href="#">contacto@jellyper.com</a>
+				</div>
+			</section>
+			<section>
+				<div class="contact-method">
+					<span class="icon alt fa-phone"></span>
+					<h3>Telefono</h3>
+					<span>(+56) xxx-xxx-xxx</span>
+				</div>
+			</section>
+			<section>
+				<div class="contact-method">
+					<span class="icon alt fa-home"></span>
+					<h3>Oficina</h3>
+					<span>Pedro de Valdivia 1231<br />
+					Providencia, Santiago<br />
+					Chile</span>
+				</div>
+			</section>
+		</section>
+	</div>
+</section>
+
+
+

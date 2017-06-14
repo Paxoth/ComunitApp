@@ -1,0 +1,49 @@
+<%if(controller.controller_name=="publications" and controller.action_name == "index" and !user_signed_in?)%>
+	<section id="banner" class="major DarkOrangeFont">
+		<div class="inner">
+			<header class="major">
+				<h1>Bienvenido a ComunitApp</h1>
+			</header>
+			<div class="content">
+				<p>Organizate con tus vecinos y comunidad para poder conseguir a los mejores especialistas al mejor precio</p>
+				<ul class="actions">
+					<li><a href="#one" class="button next scrolly">¡Comienza!</a></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+<%end%>
+
+<%if(user_signed_in? and current_user.user_type==1)%>
+	<section id="banner" class="style7">
+		<div class="inner">
+			<span class="image">
+				<img src="images/pic07.jpg" alt="" />
+			</span>
+			<header class="major">
+				<h1>Bienvenido <%=current_user.name%></h1>
+			</header>
+			<div class="content">
+				<p>¡Observa tus comunidades, mira sus demandas, genera las tuyas propias y más!</p>
+				<%= link_to "Desconectarse", destroy_user_session_path, :method => :delete, :class=>"button special btn-fit" %>
+			</div>
+		</div>
+	</section>
+<%end%>
+
+<%if(user_signed_in? and current_user.user_type==0)%>
+	<section id="banner" class="style1">
+		<div class="inner">
+			<span class="image">
+				<img src="images/pic07.jpg" alt="" />
+			</span>
+			<header class="major">
+				<h1>Bienvenido <%=current_user.name%></h1>
+			</header>
+			<div class="content">
+				<p>¡Observar las diferentes demandas generadas por las comunidades y organiza tus trabajos!</p>
+				<%= link_to "Desconectarse", destroy_user_session_path, :method => :delete, :class=>"button special btn-fit" %>
+			</div>
+		</div>
+	</section>
+<%end%>

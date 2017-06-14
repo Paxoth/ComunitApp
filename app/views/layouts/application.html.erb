@@ -5,10 +5,45 @@
 		<%= stylesheet_link_tag		'application', media: 'all', 'data-turbolinks-track' => true %>
 		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 		<%= csrf_meta_tags %>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<%= stylesheet_link_tag 'main', media: 'all', 'data-turbolinks-track' => true%>
+		<%= stylesheet_link_tag 'timeline', media: 'all', 'data-turbolinks-track' => true%>
+		<%if user_signed_in?%>
+			<%if current_user.user_type==1%>
+				<%= stylesheet_link_tag 'solicitante', media: 'all', 'data-turbolinks-track' => true%>
+			<%end%>
+		<%end%>
 	</head>
+
 	<body>
-		<%= render 'partials/navigation'%>
 		<p class="alert"><%= alert %></p>
-		<%= yield %>
+		<div id="wrapper">				
+			<%= render 'partials/navigation'%>	
+			<%= render 'partials/banners' %>
+			<div id="main" class="DarkOrangeFont">
+				<%= yield %>
+				<%= render 'partials/contactus'%>
+			</div>
+
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+						<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+					</ul>
+					<%=image_tag("JellyperGris.png", :class=>"whitelogo") %>
+					<ul class="copyright">
+						<li>&copy; ComunitApp - Jellyper Software</a></li>
+					</ul>
+				</div>
+			</footer>
+		</div>
 	</body>
+<%= javascript_include_tag "util" %>
+<%= javascript_include_tag "main" %>
+
 </html>

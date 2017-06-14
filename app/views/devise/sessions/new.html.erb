@@ -1,26 +1,59 @@
-<h2>Log in</h2>
+<%if(params[:type]=='1')%> <!--Esto es pa cambiar el color fondo-->
+	<%= stylesheet_link_tag 'solicitante', media: 'all', 'data-turbolinks-track' => true%>
+<%end%>
+<section id="one" class="DarkOrangeFont">
+	<div class="inner" >
+		<header class="major">
+			<h1>¡Trabaja con nosotros!</h1>
+		</header>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+		<hr class="major" />
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+		<div class="row 200%">
+			<div class="6u 12u$(medium)">
+			<h3>Ingresa</h3>
+			<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
+			<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+				<div class="row uniform">
+					<div class="6u 12u$(xsmall)">
+						<%= f.email_field :email,:placeholder=>"Ingresa tu correo",:type=>"email" %>
+					</div>
+					<div class="6u 12u$(xsmall)">
+						<%= f.password_field :password, autocomplete: "off",:placeholder=>"Contraseña" %>
+					</div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+					<% if devise_mapping.rememberable? -%>
+						<div class="field">
+							<%= f.check_box :remember_me %>
+							<%= f.label :remember_me, "RECORDARME" %>
+						</div>
+					<% end -%>
 
-<%= render "devise/shared/links" %>
+					<div class="actions 12u$">
+						<%= f.submit "Ingresar",:class=>"special btn-fit" %>
+					</div>
+				</div>
+			<% end %>
+			
+
+			<%= render "devise/shared/links" %>
+
+
+
+			</div>
+			<div class="6u$ 12u$(medium)">
+				<h3>Registrate</h3>
+				<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+
+				<%if(params[:type]=='0')%> 
+					<%= render 'partials/registration/especialista'%>		
+				<%else%>
+					<%= render "partials/registration/solicitante" %>
+				<%end%>
+
+				
+			</div>
+		</div>
+	</div>
+</section>

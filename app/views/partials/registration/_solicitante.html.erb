@@ -1,0 +1,40 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+	<%= devise_error_messages! %>
+	<div class="row uniform">
+
+		<div class="6u 12u$(xsmall)">
+			<%= f.text_field :name, :placeholder => "Nombre", :required => true %>
+		</div>
+
+		<div class="6u 12u$(xsmall)">
+			<%= f.text_field :email, :placeholder => "Correo electrónico", :required => true, :type=>"email" %>
+		</div>
+
+		<div class="6u 12u$(xsmall)">
+		<%= f.password_field :password, autocomplete: "off", :placeholder => "Ingrese contraseña", :required => true %>
+		</p></div>
+
+		<div class="6u 12u$(xsmall)">
+		<%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => "Repita su contaseña", :required => true %>
+		</p></div>
+
+		<%= f.hidden_field :user_type, :value => 1%>
+
+		<div class="6u 12u$(small)">
+			<input type="checkbox" id="demo-copy" name="demo-copy">
+			<label for="demo-copy">Envíar noticias a mi correo</label>
+		</div>
+		<div class="6u$ 12u$(small)">
+			<input type="checkbox" id="demo-human" name="demo-human" checked>
+			<label for="demo-human">Soy un humano</label>
+		</div>
+		<div class="6u$ 12u$(small)">
+			<input type="checkbox" id="demo-term" name="demo-human" checked>
+			<label for="demo-term">Acepto los términos y condiciones</label>
+		</div>
+
+		<div class="actions">
+		<%= f.submit "Registrarse", :class => 'especial' %>
+		</div>
+	</div	
+<% end %>

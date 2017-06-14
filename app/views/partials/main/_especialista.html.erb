@@ -1,0 +1,195 @@
+<section id="one">
+	<div class="inner">
+		<header class="major">
+			<h2>Próximos eventos</h2>
+		</header>
+		<div class="Timeline">
+
+			<svg height="5" width="200">
+				<line x1="0" y1="0" x2="200" y2="0" style="stroke:#004165;stroke-width:5" />
+				Sorry, your browser does not support inline SVG.
+			</svg>
+
+			<div class="event1">
+				<div class="event1Bubble">
+					<div class="eventTime">
+						<div class="DayDigit">
+							05
+						</div>
+						<div class="Day">
+							Viernes
+							<div class="MonthYear">
+								Mayo 2017
+							</div>
+						</div>
+					</div>
+					<div class="eventTitle">
+						GASFITERÍA
+					</div>
+				</div>
+				<div class="eventAuthor">
+					El Conquistador
+				</div>
+				<svg height="20" width="20">
+					<circle cx="10" cy="11" r="5" fill="#004165" />
+				</svg>
+				<div class="time">
+					9 : 45 AM
+				</div>
+
+			</div>
+
+			<svg height="5" width="300">
+				<line x1="0" y1="0" x2="300" y2="0" style="stroke:#004165;stroke-width:5" />
+				Sorry, your browser does not support inline SVG.
+			</svg>
+
+			<div class="event2">
+				<div class="event2Bubble">
+					<div class="eventTime">
+						<div class="DayDigit">
+							08
+						</div>
+						<div class="Day">
+							Lunes
+						<div class="MonthYear">
+							Mayo 2017
+						</div>
+						</div>
+					</div>
+					<div class="eventTitle">
+						GASFITERÍA
+					</div>
+				</div>
+				<div class="event2Author">
+					Condominio Don Pedro
+				</div>
+				<svg height="20" width="20">
+					<circle cx="10" cy="11" r="5" fill="#004165" />
+				</svg>
+				<div class="time2">
+					2 : 30 PM
+				</div>
+			</div>
+			
+
+
+			<svg height="5" width="50">
+				<line x1="0" y1="0" x2="50" y2="0" style="stroke:#004165;stroke-width:5" />
+				Sorry, your browser does not support inline SVG.
+			</svg>
+
+			<div class="now">
+				AHORA - Pauta FINAL
+			</div>  
+
+
+			<svg height="5" width="150">
+				<line x1="0" y1="0" x2="150" y2="0" style="stroke:rgba(162, 164, 163, 0.37);stroke-width:5" />
+				Sorry, your browser does not support inline SVG.
+			</svg>
+
+			<div class="event3 futureGray ">
+				<div class="event1Bubble futureOpacity">
+					<div class="eventTime">
+						<div class="DayDigit">
+							18
+						</div>
+						<div class="Day">
+							Jueves
+							<div class="MonthYear">
+								Mayo 2017
+							</div>
+						</div>
+					</div>
+					<div class="eventTitle">
+						GASFITERÍA
+					</div>
+				</div>
+				<svg height="20" width="20">
+					<circle cx="10" cy="11" r="5" fill="rgba(162, 164, 163, 0.37)" />
+				</svg>
+			</div>
+			
+			<svg height="5" width="50">
+				<line x1="0" y1="0" x2="50" y2="0" style="stroke:#004165;stroke-width:5" /> 
+			</svg>
+			<svg height="20" width="42">
+				<line x1="1" y1="0" x2="1" y2="20" style="stroke:#004165;stroke-width:2" /> 
+				<circle cx="11" cy="10" r="3" fill="#004165" />  
+				<circle cx="21" cy="10" r="3" fill="#004165" />  
+				<circle cx="31" cy="10" r="3" fill="#004165" />    
+				<line x1="41" y1="0" x2="41" y2="20" style="stroke:#004165;stroke-width:2" /> 
+			</svg>  
+
+		</div>
+	</div>
+</section>
+
+<!-- Two -->
+<section id="two" class="spotlights">
+	<section>
+		<a href="#" class="image">
+			<%=image_tag("UsuarioAzul.jpg", :data=>{:position=>"center center"}) %>
+		</a>
+		<div class="content">
+			<div class="inner">
+				<header class="major">
+					<h3>Mis Datos</h3>
+				</header>
+				<p><strong>
+					<%if current_user.specialty==0%>
+						Maestro Gásfiter
+					<%else%>
+						Maestro Constructor
+					<%end%>
+					<%=current_user.name%>
+				</strong></p>
+				<center><%=image_tag("evaluacion.png",:id=>"evaluacion", :data=>{:position=>"center center"}) %></p>
+				<p><i>"Me siento capacita sNullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus."</i></p></center>
+				
+				<center>
+					<ul class="actions">
+						<li><a href="#" class="button">Modificar tus datos</a></li>
+					</ul>
+				</center>
+			</div>
+		</div>
+	</section>
+	<section>
+		<a href="especialista_lista_demandas.html" class="image">
+			<%=image_tag("Mapa.png", :data=>{:position=>"top center"}) %>
+		</a>
+		<div class="content">
+			<div class="inner">
+				<header class="major">
+					<h3>Demandas disponibles</h3>
+				</header>
+				<p>Actualmente hay <strong>4</strong> demandas en tus comunas preferidas</p>
+				<p>Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
+				
+				<center>
+					<ul class="actions">
+						<li><a href="especialista_lista_demandas.html" class="button">Ver demandas</a></li>
+						<li><a href="#" class="button">Ver calendario</a></li>
+					</ul>
+				</center>
+			</div>
+		</div>
+	</section>
+
+</section>
+
+<!-- Three -->
+<section id="three">
+	<div class="inner">
+		<header class="major">
+			<h2>Massa libero</h2>
+		</header>
+		<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus.</p>
+		<ul class="actions">
+			<li><a href="#" class="button next">Más información</a></li>
+		</ul>
+	</div>
+</section>
+

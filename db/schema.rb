@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20170510181008) do
     t.string   "last_sign_in_ip",        limit: 255
     t.string   "name",                   limit: 255
     t.integer  "user_type",              limit: 4
+    t.integer  "specialty",              limit: 4
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
   end
