@@ -15,14 +15,9 @@
 					</div>
 				</div>
 			<%end%>
-			<%if user_signed_in?%>
-				<%if current_user.user_type==2%><!--2 para ADMIN-->
-					<%= link_to 'Agregar noticia', new_publication_path %>
-				<%end%>
-			<%end%>	
-
 		</div>
 	<%end%>
+	
 	<div class="inner">
 		<section class="DarkOrangeFont" >
 			<h1>¡Contáctanos!</h1>

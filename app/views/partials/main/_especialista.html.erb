@@ -138,12 +138,7 @@
 					<h3>Mis Datos</h3>
 				</header>
 				<p><strong>
-					<%if current_user.specialty==0%>
-						Maestro Gásfiter
-					<%else%>
-						Maestro Constructor
-					<%end%>
-					<%=current_user.name%>
+					<%=current_user.specialty.title%>: 	<%=current_user.name%>
 				</strong></p>
 				<center><%=image_tag("evaluacion.png",:id=>"evaluacion", :data=>{:position=>"center center"}) %></p>
 				<p><i>"Me siento capacita sNullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus."</i></p></center>

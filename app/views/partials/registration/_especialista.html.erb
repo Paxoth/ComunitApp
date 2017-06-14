@@ -11,8 +11,9 @@
 		</div>
 
 		<div class="12u$">
-			<%= f.select(:specialty, [['Gasfitería', 1],['Construcción', 2]], {:include_blank => '<span>Seleccione su especialidad principal</span>'.html_safe }, { :class => 'dropdown', :required => true }) %>
+        	<%= f.select :specialty_id, @specialties.collect {|specialty| [specialty.title, specialty.id]},{:include_blank => '<span>Seleccione su especialidad principal</span>'.html_safe}, { :class => 'dropdown', :required => true } %>
 		</div>
+
 
 		<div class="6u 12u$(xsmall)">
 		<%= f.password_field :password, autocomplete: "off", :placeholder => "Ingrese contraseña", :required => true %>

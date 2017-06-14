@@ -14,6 +14,20 @@
 	</section>
 <%end%>
 
+<%if(user_signed_in? and current_user.user_type==0)%>
+	<section id="banner" class="style1">
+		<div class="inner">
+			<header class="major">
+				<h1>Bienvenido <%=current_user.name%></h1>
+			</header>
+			<div class="content">
+				<p>¡Observar las diferentes demandas generadas por las comunidades y organiza tus trabajos!</p>
+				<%= link_to "Desconectarse", destroy_user_session_path, :method => :delete, :class=>"button special btn-fit" %>
+			</div>
+		</div>
+	</section>
+<%end%>
+
 <%if(user_signed_in? and current_user.user_type==1)%>
 	<section id="banner" class="style7">
 		<div class="inner">
@@ -28,14 +42,14 @@
 	</section>
 <%end%>
 
-<%if(user_signed_in? and current_user.user_type==0)%>
+<%if(user_signed_in? and current_user.user_type==2)%>
 	<section id="banner" class="style1">
 		<div class="inner">
 			<header class="major">
-				<h1>Bienvenido <%=current_user.name%></h1>
+				<h1>Bienvenido Administrador <%=current_user.name%></h1>
 			</header>
 			<div class="content">
-				<p>¡Observar las diferentes demandas generadas por las comunidades y organiza tus trabajos!</p>
+				<p>¡Acá administra la página!</p>
 				<%= link_to "Desconectarse", destroy_user_session_path, :method => :delete, :class=>"button special btn-fit" %>
 			</div>
 		</div>

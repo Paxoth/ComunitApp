@@ -3,8 +3,10 @@
 <%else%>
 	<%if current_user.user_type==0%>
 		<%= render 'partials/main/especialista'%>	
-	<%else%>
+	<%elsif current_user.user_type==1%>
 		<%= render 'partials/main/solicitante'%>
+	<%else%>
+		<%= render 'partials/main/admin'%>
 	<%end%>
 	
 <%end%>

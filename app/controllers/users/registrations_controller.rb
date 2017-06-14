@@ -5,10 +5,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 			devise_parameter_sanitizer.permit(:sign_up, keys: [
 				:name, 
 				:user_type, 
-				:specialty])
+				:specialty_id])
 			devise_parameter_sanitizer.permit(:account_update, keys: [:name, 
 				:user_type, 
-				:specialty, 
+				:specialty_id, 
 				:email, 
 				:password, 
 				:password_confirmation, 
