@@ -1,37 +1,11 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#	 cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#	 Mayor.create(name: 'Emanuel', city: cities.first)
+#Especialidades (specialty)
+# => 1: Gasfteria
+# => 2: Construccion
+specialty_list = [	
+	['Gasfiteria','La fontanería, plomería o gasfitería es la actividad relacionada con la instalación y mantenimiento de redes de tuberías para el abastecimiento de agua potable y evacuación de aguas residuales, así como las instalaciones de calefacción en edificaciones y otras construcciones.'],
+	['Construccion','La construcción es la actividad de ensamblar, crear, desarrollar un edificio o parte de el. También se incluyen los servicios de albañileria.']
+]
 
-# 	category:
-# 		0: Especialista
-# 		1: Solicitante
-# 		2: Administrador
-# 	specialty:
-# 		1: gasfiter
-# 		2: constructor
-# Servicios
-# Gasfiteria: Instalacion de Gasfiteria Completa
-# Gasfiteria: Revision general de Gasfiteria
-# Gasfiteria: Cambiar Gasfiteria
-# Gasfiteria: Desatascar Tuberias
-# Gasfiteria: Instalar Calefont
-# Gasfiteria: Instalar Termo Electrico
-# Gasfiteria: Otros trabajos de Gasfiteria menores
-# Gasfiteria: Otros trabajos de Gasfiteria mayores
-# Construccion: Construir Pared
-# Construccion: Colocar Baldosa o Azulejo
-# Construccion: Poner Losa
-# Construccion: Otro trabajos de Albañileria menores
-# Construccion: Otro trabajos de Albañileria mayores
-# Construccion: Remodelacion Baño
-# Construccion: Remodelacion Habitacion
-# Construccion: Remodelacion General
-# Construccion: Otro trabajos de remodelacion menores
-# Construccion: Otro trabajos de remodelacion mayores
 service_list = [
 	['Instalacion de Gasfiteria Completa', 'Instalacion de Gasfiteria Completa', 1],
 	['Revision general de Gasfiteria', 'Revision general de Gasfiteria', 1],
@@ -53,12 +27,34 @@ service_list = [
 	['Otro trabajo de remodelacion mayores', 'Otro trabajo de remodelacion mayores', 2]
 ]
 
-User.create(name: 'SecretUser',email: 'admin@comunitapp.cl',password:'1234567890',category:2)
-especialidadaes = Specialty.create([
-	{title: 'Gasfiteria', description: 'Servicio de gasfiteria o fontaneria'},
-	{title: 'Construccion', description: 'Servicio de construccion mayor o menores'}
-	])
-service_list.each do |title,description,specialty_id|
-	Service.create(title:title, description: description, specialty_id: specialty_id)
+#Usuarios (category)
+# => 0: Especialistas
+# => 1: Solicitantes
+# => 2: Administrador
+user_list = [
+	['UserGasfiter','gasfiter@comunitapp.cl','comunitapp123',0,1],
+	['UserConstructor','constructor@comunitapp.cl','comunitapp123',0,2],
+	['UserSolicitante','solicitante@comunitapp.cl','comunitapp123',1,nil],
+	['UserAdmin','admin@comunitapp.cl','comunitapp123',2,nil]
+]
+
+publication_list = [
+	['¿Qué es un demanda?','Una demanda de servicio o solicitud de servicio, es la actividad que te permite como solicitante indicar tus necesidades o deseos para que maestros especialistas las puedan ver y decidir trabajar contigo'],
+	['Se viene la gran feria de prototipos','En el Departamento de Ingeniería Informática se realizará la feria de prototipos de proyectos realizados por estudiantes del mismo. Por lo cual se presentara ComunitApp para la univeersidad']
+]
+
+specialty_list.each do |title,description|
+	Specialty.create(title: title, description: description)
 end
 
+service_list.each do |title,description,specialty_id|
+	Service.create(title: title, description: description, specialty_id: specialty_id)
+end
+
+user_list.each do |name,email,password,category,specialty_id|
+	User.create(name: name, email: email, password: password, category: category, specialty_id: specialty_id)
+end
+
+publication_list.each do |title,body|
+	Publication.create(title: title, body: body)
+end
