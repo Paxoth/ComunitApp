@@ -45,8 +45,9 @@
 				
 				<center>
 					<ul class="actions">
-						<li><a href="solicitante_lista_demandas.html" class="button">Ver demandas</a></li>
-						<li><a href="solicitante_form_demanda.html" class="button">Nueva solicitud</a></li>
+						<%=link_to "Ver demandas", demands_path, :class=>"button"%>
+						<%=link_to "Generar una solicitud", new_demand_path, :class=>"button special"%>
+
 					</ul>
 				</center>
 			</div>

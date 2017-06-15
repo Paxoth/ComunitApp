@@ -1,37 +1,133 @@
-<p id="notice"><%= notice %></p>
+<section id="one" class="DarkOrangeFont">
+	<div class="inner">
+		<div class="row">
+			<div class="8u 12u$(small)">
+				<h3>Tus demandas generadas</h3>
+				<%if @demands.count!=0%>
+					<div class="table-wrapper">
+						<table>
+							<thead>
+								<tr>
+									<th>Nombre Demanda</th>
+									<th>Especialidad</th>
+									<th>Servicio</th>
+									<th>Estado</th>
+									<th>Tipo</th>
+								</tr>
+							</thead>
+							<tbody>
+								<% @demands.each do |demand| %>
+									<tr>
+										<td><%= demand.title %></td>
+										<td><%= demand.service.specialty.title %></td>
+										<td><%= demand.service.title %></td>
+										<td>
+											<%if demand.status == 0%>
+												Generación
+											<% elsif demand.status == 1%>
+												Visita a terreno
+											<% elsif demand.status == 2%>
+												En proceso de licitación
+											<% elsif demand.status == 3%>
+												Decisión de un especialista
+											<% elsif demand.status == 4%>
+												Trabajo
+											<% elsif demand.status == 5%>
+												Finalizado
+											<%end%>																
+										</td>
+										<td>
+											<%if demand.demand_type == 0%>
+												Pública
+											<% else%>
+												Privada
+											<%end%>																
+										</td>
+									</tr>
+								<% end %>
+							</tbody>
+						</table>
+					</div>
+				<%else%>
+					<div class="panel panel-default panel-comunitApp">
+						<div class="panel-heading text-uppercase">
+							No has generado ninguna demanda
+						</div>
+						<div class="panel-body">
+							<p>Recuerda que puedes generar tus propias demandas o ver demandas de tu comunidad para unirte a ellas. Las demandas pueden ser publicas para que tu comunidad las vea o privadas hacer solicitudes personales</p>
+						</div>
+					</div>
+				<%end%>		
+			</div>
+			<div class="4u$ 12u$(small)">
+				<div class="panel panel-default panel-comunitApp">
+					<div class="panel-heading text-uppercase">
+						¿Quieres generar una nueva demanda?
+					</div>
+					<div class="panel-body">
+						<p><%=@publications.second.body%></p>
+						<%=link_to "Generar demanda", new_demand_path, :class=>"button"%>
+					</div>
+				</div>
+			</div>
+		</div>
 
-<h1>Listing Demands</h1>
+		<hr class="major" />
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Status</th>
-      <th>Demand type</th>
-      <th>User</th>
-      <th>Service</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+		<div class="row">
+			<div class="4u 12u$(small)">
+				<h2 id="content">¿Quieres generar una nueva demanda para la comunidad?</h2>
+				<p>Praesent ac adipiscing ullamcorper semper ut amet ac risus. Lorem sapien ut odio odio nunc. Ac adipiscing nibh porttitor erat risus justo adipiscing adipiscing amet placerat accumsan. Vis. Faucibus odio magna tempus adipiscing a non. In mi primis arcu ut non accumsan vivamus ac blandit adipiscing adipiscing arcu metus praesent turpis eu ac lacinia nunc ac commodo gravida adipiscing eget accumsan ac nunc adipiscing adipiscing.</p>
+				<center>
+					<ul class="actions">
+						<li><a href="solicitante_form_demanda.html" class="button">Generar demanda</a></li>
+					</ul>
+				</center>
+			</div>
+			<div class="8u$ 12u$(small)">
+				<h3>Demandas de tus comunidades</h3>
+				<div class="table-wrapper">
+					<table>
+						<thead>
+							<tr>
+								<th>Nombre Demanda</th>
+								<th>Comunidad</th>
+								<th>Categoría</th>
+								<th>Miembros</th>
+								<th>Estado</th>
+								<th>Información</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Arreglar tuberia oxidada</td>
+								<td>Comunidad X</td>
+								<td>Gasfiteria.</td>
+								<td>5</td>
+								<td>Proceso de licitación</td>
+								<td><a href="solicitante_perfil_demanda_1.html">Ver demanda</a></td>
+							</tr>
+							<tr>
+								<td>Arreglar Calefont</td>
+								<td>Comunidad X</td>
+								<td>Gasfiteria.</td>
+								<td>2</td>
+								<td>Proceso de licitación</td>
+								<td><a href="solicitante_perfil_demanda_1.html">Ver demanda</a></td>
+							</tr>
+							<tr>
+								<td>Instalar lavadora</td>
+								<td>Comunidad Z</td>
+								<td>Gasfiteria.</td>
+								<td>4</td>
+								<td>Proceso de licitación</td>
+								<td><a href="solicitante_perfil_demanda_1.html">Ver demanda</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 
-  <tbody>
-    <% @demands.each do |demand| %>
-      <tr>
-        <td><%= demand.title %></td>
-        <td><%= demand.description %></td>
-        <td><%= demand.status %></td>
-        <td><%= demand.demand_type %></td>
-        <td><%= demand.user %></td>
-        <td><%= demand.service %></td>
-        <td><%= link_to 'Show', demand %></td>
-        <td><%= link_to 'Edit', edit_demand_path(demand) %></td>
-        <td><%= link_to 'Destroy', demand, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Demand', new_demand_path %>

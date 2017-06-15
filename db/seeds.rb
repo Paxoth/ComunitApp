@@ -39,6 +39,7 @@ user_list = [
 ]
 
 publication_list = [
+	['Sobre los servicios','Los servicios que actualmente posee ComunitApp son gasfiteria y construccion. Si deseas que agreguemos más servicios comunicate con nosotros a traves de la pagina de contacto.'],
 	['¿Qué es un demanda?','Una demanda de servicio o solicitud de servicio, es la actividad que te permite como solicitante indicar tus necesidades o deseos para que maestros especialistas las puedan ver y decidir trabajar contigo'],
 	['Se viene la gran feria de prototipos','En el Departamento de Ingeniería Informática se realizará la feria de prototipos de proyectos realizados por estudiantes del mismo. Por lo cual se presentara ComunitApp para la univeersidad']
 ]

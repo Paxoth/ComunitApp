@@ -1,6 +1,64 @@
 <section id="one" class="DarkOrangeFont">
 	<div class="inner">
-		<%= render 'form' %>
+		<div class="row 200%">
+			<div class="8u 12u$(medium)">
+				<%=render 'form'%>
+			</div>
+			<div class="4u 12u$(medium)">
+
+				<div class="panel panel-default panel-comunitApp">
+					<div class="panel-heading text-uppercase">
+						<%=@publications.first.title%>
+					</div>
+					<div class="panel-body">
+						<%=@publications.first.body%>
+					</div>
+				</div>
+
+				<div class="panel panel-default panel-comunitApp">
+					<div class="panel-heading text-uppercase">
+						Posibles estados de la demanda
+					</div>
+					<div class="panel-body" >
+						<ul style="text-align: left">
+							<li>Generación [Ahora]</li>
+							<li>Visita a terreno</li>
+							<li>Licitación</li>
+							<li>Decisión de un especialista</li>
+							<li>Trabajo</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr class="major" />
+		<div class="row">
+			<div class="12u 12u$">
+				<div class="panel panel-default panel-comunitApp">
+					<div class="panel-heading text-uppercase">
+						<%=@publications.second.title%>
+					</div>
+					<div class="panel-body" >
+						<%=@publications.second.body%>
+					</div>
+				</div>
+			</div>
+
+			<%@specialties.each do |specialty|%>
+				<div class="6u 12u$(small)">
+					<div class="panel panel-default panel-comunitApp">
+						<div class="panel-heading text-uppercase">
+							<%=specialty.title%>
+						</div>
+						<div class="panel-body" >
+							<%=specialty.description%>
+						</div>
+					</div>
+				</div>
+			<%end%>
+
+		</div>
+
 		<center>
 			<%= link_to 'Ver demandas', demands_path,:class=>'button special btn-fit' %>
 		</center>

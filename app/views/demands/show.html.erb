@@ -1,49 +1,99 @@
-<p id="notice"><%= notice %></p>
+<section id="one" class="DarkOrangeFont">
+	<div class= "12u$(medium)">
+		<div class="table-wrapper">
+			<table>
+				<tbody>
+					<tr>
+						<td><strong>Descripción: </strong></td>
+						<td>Praesent ac adipiscing ullamcorper semper ut amet ac risus. Lorem sapien ut odio odio nunc. Ac adipiscing nibh porttitor erat risus justo adipiscing adipiscing amet placerat accumsan. Vis. Faucibus odio magna tempus adipiscing a non. In mi primis arcu ut non accumsan vivamus ac blandit adipiscing adipiscing arcu metus praesent turpis eu ac lacinia nunc ac commodo gravida adipiscing eget accumsan ac nunc adipiscing adipiscing.</td>
+					</tr>
+					<tr>
+						<td><strong>Creador(a): </strong></td>
+						<td> Katerin Liberola</td>
+					</tr>
+					<tr>
+						<td><strong>Estado: </strong></td>
+						<td> Proceso de licitación</td>
+					</tr>
+					<tr>
+						<td><strong>Tiempo para el siguiente estado: </strong></td>
+						<td> 7 días y 5 horas</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+		
+		<h2 id="content">Más información</h2>
+		<div class="row">
+			<div class="6u 12u$(small)">
+				<h3>Solicitantes unidos a la demanda</h3>
 
-<p>
-	<strong>Nombre de la demanda:</strong>
-	<%= @demand.title %>
-</p>
-<p>
-	<strong>Service:</strong>
-	<%= @demand.service.specialty.title %>: <%= @demand.service.title %>
-</p>
-<p>
-	<strong>Descripción:</strong>
-	<%= @demand.description %>
-</p>
-
-<p>
-	<strong>Estado:</strong>
-	<%if @demand.status == 0%>
-		Generación
-	<% elsif @demand.status == 1%>
-		Visita a terreno
-	<% elsif @demand.status == 2%>
-		En proceso de licitación
-	<% elsif @demand.status == 3%>
-		Decisión de un especialista
-	<% elsif @demand.status == 4%>
-		Trabajo
-	<% elsif @demand.status == 5%>
-		Finalizado
-	<%end%>
-</p>
-
-<p>
-	<strong>Tipo de demanda:</strong>
-	<%if @demand.demand_type == 0%>
-		Pública
-	<%else%>
-		Privada
-	<%end%>
-</p>
-
-<p>
-<strong>User:</strong>
-	<%= @demand.user.name %>
-</p>
-
-
-<%= link_to 'Editar', edit_demand_path(@demand), :class=>'button special btn-fit' %> 
-<%= link_to 'Volver', demands_path, :type=>'reset' %>
+				<ul class="alt">
+					<li><a href="#" class="icon fa-github"></a> Katerin Liberola</li>
+					<li><a href="#" class="icon fa-github"></a> Máximo Pérez</li>
+					<li><a href="#" class="icon fa-github"></a> Cristian DiskJoker</li>
+					<li><a href="#" class="icon fa-github"></a> Juan Hayashi</li>
+					<li><a href="#" class="icon fa-github"></a> Nelson Jeldes</li>
+				</ul>
+			</div>
+			<div class="6u$ 12u$(small)">
+				<h3>Mapa de la demanda</h3>
+				<span class="image fit"><img src="images/Mapa.png" style="max-height: 300px;" alt="" /></span>
+			</div>
+		</div>
+		<center>
+			<ul class="actions">
+				<li><a href="solicitante_perfil_demanda_2.html" class="button">Unirse a la demanda</a></li>
+			</ul>
+		</center>
+		<hr class="major" />
+		<div class= "12u$(medium)">
+			<h3>Cotización de especialistas</h3>
+			<div class="table-wrapper">
+				<table>
+					<thead>
+						<tr>
+							<th>Cantidad de votos</th>
+							<th>Nombre Especialista</th>
+							<th>Precio por el trabajo [CLP]</th>
+							<th>Valoración</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>5</td>
+							<td>Rodrigo Torres.</td>
+							<td>1.500.000</td>
+							<td>4.9</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>Luciano Hidalgo.</td>
+							<td>2.000.000</td>
+							<td>4.5</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td> Ana Pinto.</td>
+							<td>1.600.000</td>
+							<td>4.2</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>Fernando Segura.</td>
+							<td>1.400.000</td>
+							<td>3.5</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>Andrea Valdevenito.</td>
+							<td>3.550.000</td>
+							<td>4.5</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</section>
