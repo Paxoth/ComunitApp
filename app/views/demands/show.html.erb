@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+	<strong>Nombre de la demanda:</strong>
+	<%= @demand.title %>
+</p>
+<p>
+	<strong>Service:</strong>
+	<%= @demand.service.specialty.title %>: <%= @demand.service.title %>
+</p>
+<p>
+	<strong>Descripción:</strong>
+	<%= @demand.description %>
+</p>
+
+<p>
+	<strong>Estado:</strong>
+	<%if @demand.status == 0%>
+		Generación
+	<% elsif @demand.status == 1%>
+		Visita a terreno
+	<% elsif @demand.status == 2%>
+		En proceso de licitación
+	<% elsif @demand.status == 3%>
+		Decisión de un especialista
+	<% elsif @demand.status == 4%>
+		Trabajo
+	<% elsif @demand.status == 5%>
+		Finalizado
+	<%end%>
+</p>
+
+<p>
+	<strong>Tipo de demanda:</strong>
+	<%if @demand.demand_type == 0%>
+		Pública
+	<%else%>
+		Privada
+	<%end%>
+</p>
+
+<p>
+<strong>User:</strong>
+	<%= @demand.user.name %>
+</p>
+
+
+<%= link_to 'Editar', edit_demand_path(@demand), :class=>'button special btn-fit' %> 
+<%= link_to 'Volver', demands_path, :type=>'reset' %>

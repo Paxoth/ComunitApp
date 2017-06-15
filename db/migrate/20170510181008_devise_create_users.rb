@@ -32,8 +32,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       #Datos extras
       t.string :name
-      t.integer :user_type
-      t.integer :specialty
+      t.integer :category
+      t.string :address
       t.timestamps null: false
     end
 

@@ -6,7 +6,7 @@
 #	 cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #	 Mayor.create(name: 'Emanuel', city: cities.first)
 
-# 	user_type:
+# 	category:
 # 		0: Especialista
 # 		1: Solicitante
 # 		2: Administrador
@@ -53,7 +53,7 @@ service_list = [
 	['Otro trabajo de remodelacion mayores', 'Otro trabajo de remodelacion mayores', 2]
 ]
 
-User.create(name: 'SecretUser',email: 'admin@comunitapp.cl',password:'1234567890',user_type:2)
+User.create(name: 'SecretUser',email: 'admin@comunitapp.cl',password:'1234567890',category:2)
 especialidadaes = Specialty.create([
 	{title: 'Gasfiteria', description: 'Servicio de gasfiteria o fontaneria'},
 	{title: 'Construccion', description: 'Servicio de construccion mayor o menores'}

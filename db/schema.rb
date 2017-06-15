@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614195815) do
+ActiveRecord::Schema.define(version: 20170614211827) do
+
+  create_table "demands", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.text     "description", limit: 65535
+    t.integer  "status",      limit: 4
+    t.integer  "demand_type", limit: 4
+    t.datetime "start_date"
+    t.integer  "user_id",     limit: 4
+    t.integer  "service_id",  limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
+  add_index "demands", ["service_id"], name: "index_demands_on_service_id", using: :btree
+  add_index "demands", ["user_id"], name: "index_demands_on_user_id", using: :btree
 
   create_table "publications", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -56,8 +71,8 @@ ActiveRecord::Schema.define(version: 20170614195815) do
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
     t.string   "name",                   limit: 255
-    t.integer  "user_type",              limit: 4
-    t.integer  "specialty",              limit: 4
+    t.integer  "category",               limit: 4
+    t.string   "address",                limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
     t.integer  "specialty_id",           limit: 4
@@ -67,6 +82,8 @@ ActiveRecord::Schema.define(version: 20170614195815) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["specialty_id"], name: "index_users_on_specialty_id", using: :btree
 
+  add_foreign_key "demands", "services"
+  add_foreign_key "demands", "users"
   add_foreign_key "services", "specialties"
   add_foreign_key "users", "specialties"
 end

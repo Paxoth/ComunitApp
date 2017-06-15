@@ -1,9 +1,9 @@
 <%if !user_signed_in?%>
 	<%= render 'partials/welcome'%>		
 <%else%>
-	<%if current_user.user_type==0%>
+	<%if current_user.category==0%>
 		<%= render 'partials/main/especialista'%>	
-	<%elsif current_user.user_type==1%>
+	<%elsif current_user.category==1%>
 		<%= render 'partials/main/solicitante'%>
 	<%else%>
 		<%= render 'partials/main/admin'%>

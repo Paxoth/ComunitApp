@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :demands
   resources :services
   resources :specialties
   resources :service_areas

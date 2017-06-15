@@ -9,8 +9,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<%= stylesheet_link_tag 'main', media: 'all', 'data-turbolinks-track' => true%>
 		<%= stylesheet_link_tag 'timeline', media: 'all', 'data-turbolinks-track' => true%>
+		<%= stylesheet_link_tag 'dropdown', media: 'all', 'data-turbolinks-track' => true%>
 		<%if user_signed_in?%>
-			<%if current_user.user_type==1%>
+			<%if current_user.category==1 or current_user.category==2%>
 				<%= stylesheet_link_tag 'solicitante', media: 'all', 'data-turbolinks-track' => true%>
 			<%end%>
 		<%end%>
