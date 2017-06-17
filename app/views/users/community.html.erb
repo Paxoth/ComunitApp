@@ -1,0 +1,13 @@
+<section id="one" class="DarkOrangeFont">
+	<div class="inner">
+		<%= form_for @user, url: {action: "update"} do |f| %>
+			<div class="12u$">
+				<%= f.select :community_id, @communities.collect {|community| [community.name, community.id]},{:include_blank => '<span>Seleccione la comunidad que deseas pertenecer</span>'.html_safe}, {:required => true, :class=>'wrapper-dropdown-3 12u$'} %>
+
+			</div>
+			<div class="actions">
+				<%= f.submit "Unirse", :class => 'especial' %>
+			</div>
+		<%end%>
+	</div>
+</section>

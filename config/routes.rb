@@ -1,16 +1,19 @@
 Rails.application.routes.draw do
 
-  resources :demands
-  resources :services
-  resources :specialties
-  resources :service_areas
+	resources :communities
+	resources :demands
+	resources :services
+	resources :specialties
+	resources :service_areas
+  	
 	resources :publications
 	root 'publications#index'
 
 	devise_for :users, :controllers => { 
 		:registrations => "users/registrations",
 		:sessions => "users/sessions" }
-
+	resources :users, only: [:show,:edit,:update]
+	get 'users/:id/community' => 'users#community'
 	# The priority is based upon order of creation: first created -> highest priority.
 	# See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,17 @@
+<section id="one" class="DarkOrangeFont">
+	<div class="inner">
+		<%= form_for @user, url: {action: "update"} do |f| %>
+			<div class="field">
+				<%= f.text_field :name, :placeholder=>'Nombre' %>
+			</div>
+			<div class="field">
+				<%= f.text_field :address, :placeholder=>'Dirección' %>
+			</div>
+			<div class="field">
+				<%= f.text_area :description, :placeholder=>'Escribe algo sobre tí' %>
+			</div>
+			<div class="actions">
+				<%= f.submit "Guardar cambios", :class=>'button btn-fit special'%>
+		<%end%>
+	</div>
+</section>

@@ -29,6 +29,10 @@ class DemandsController < ApplicationController
 
 		respond_to do |format|
 			if @demand.save
+				if @demand.demand_type == 0
+					@demand.community_id = current_user.community_id
+					@demand.save
+				end
 				format.html { redirect_to @demand, notice: 'Demand was successfully created.' }
 				format.json { render :show, status: :created, location: @demand }
 			else
@@ -70,6 +74,13 @@ class DemandsController < ApplicationController
 
 		# Never trust parameters from the scary internet, only allow the white list through.
 		def demand_params
-			params.require(:demand).permit(:title, :description, :status, :demand_type, :start_date, :user_id, :service_id)
+			params.require(:demand).permit(:title, 
+				:description, 
+				:status, 
+				:demand_type, 
+				:start_date, 
+				:user_id, 
+				:service_id,
+				:community_id)
 		end
 end

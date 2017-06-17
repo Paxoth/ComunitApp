@@ -1,0 +1,26 @@
+<section id="one" class="DarkOrangeFont">
+	<div class="inner">
+		<p><strong>Nombre: </strong><%=@user.name%></p>
+		<p>
+			<strong>Tipo de usuario: </strong>
+			<%if @user.category==0%>
+				Especilista
+			<%else%>
+				Solicitante
+			<%end%>
+		</p>
+
+		<%if @user.address.present?%>
+			<p><strong>Dirección: </strong><%= @user.address%></p>
+		<%end%>
+		<%if @user.community.present?%>
+			<p><strong>Comunidad: </strong><%= @user.community.name%></p>
+		<%end%>
+		<center>
+			<ul class="actions">
+				<li><%= link_to "Unirse a una comunidad", {:controller => "users", :action => "community", :id => current_user},:class=>'button ' %></li>
+				<li><%=link_to "Cambiar datos", edit_user_path(current_user),:action=>'edit', :class=>'button special'%></li>
+			</ul>
+		</center>
+	</div>
+</section>

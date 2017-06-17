@@ -9,14 +9,36 @@
 				</header>
 				<div class="content">
 					<p>Organizate con tus vecinos y comunidad para poder conseguir a los mejores especialistas al mejor precio</p>
-					<ul class="actions">
-						<li><a href="#one" class="button next scrolly">¡Comienza!</a></li>
-					</ul>
 				</div>
 			</div>
 		</section>
 	<%end%>
-
+	<%if(controller.controller_name=="sessions" and controller.action_name == "new")%>
+		<%if(params[:type]=='1')%> <!--Esto es pa cambiar el color fondo-->
+			<%= stylesheet_link_tag 'solicitante', media: 'all', 'data-turbolinks-track' => true%>
+			<section id="banner" class="style8">
+				<div class="inner">
+					<header class="major">
+						<h1>Sé parte de la comunidad</h1>
+					</header>
+					<div class="content">
+						<p>¡Unete a tus comunidades, genera solicitudes de servicios y cumple tus deseos!</p>
+					</div>
+				</div>
+			</section>
+		<%else%>
+			<section id="banner" class="style1">
+				<div class="inner">
+					<header class="major">
+						<h1>Trabaja gracias a ComunitApp</h1>
+					</header>
+					<div class="content">
+						<p>¡Ingresa a ComunitApp y revisa los servicios demandandos por la comunidad!</p>
+					</div>
+				</div>
+			</section>
+		<%end%>
+	<%end%>
 <!--CON INICIAR SESION-->
 <%else%>
 	<!--Especialistas-->
@@ -55,7 +77,7 @@
 			<section id="banner" class="style8">
 				<div class="inner">
 					<header class="major">
-						<h1>¡<%=current_user.name%> genera una solicitud de servicio!</h1>
+						<h1>¡Genera una solicitud de servicio!</h1>
 					</header>
 					<div class="content">
 						<p>Acá debes ingresar todos los datos necesarios para que maestros puedan ver que lo que deseas y postulen a realizar el trabajo enviando sus presupuestos</p>
@@ -70,13 +92,10 @@
 			<section id="banner" class="style8">
 				<div class="inner">
 					<header class="major">
-						<h1>¡<%=current_user.name%> ve el listado de demandas!</h1>
+						<h1>¡Ve el listado de demandas!</h1>
 					</header>
 					<div class="content">
 						<p>Acá podras ver el listado de demandas generadas por ti y por tus comunidades</p>
-						<ul class="actions">
-							<li><a href="#one" class="button next scrolly">¡Comienza!</a></li>
-						</ul>
 					</div>
 				</div>
 			</section>
@@ -90,6 +109,39 @@
 					<div class="content">
 						<p><%=@demand.service.specialty.title%>:  <%=@demand.service.title%></p>
 					</div>
+				</div>
+			</section>
+		<!--Users community-->
+		<%elsif(controller.controller_name=="users" and controller.action_name == "community")%>
+			<section id="banner" class="style8">
+				<div class="inner">
+					<header class="major">
+						<h1>Únete a una comunidad</h1>
+					</header>
+				</div>
+			</section>
+		<!--Users show-->
+		<%elsif(controller.controller_name=="users" and controller.action_name == "show")%>
+			<section id="banner" class="style8">
+				<div class="inner">
+					<header class="major">
+						<h1>Perfil de <%=@user.name%></h1>
+					</header>
+
+					<%if @user.description.present?%>
+						<div class="content">
+							<p><%=@user.description%>
+						</div>
+					<%end%>
+				</div>
+			</section>
+		<!--Users edit-->
+		<%elsif(controller.controller_name=="users" and controller.action_name == "edit")%>
+			<section id="banner" class="style8">
+				<div class="inner">
+					<header class="major">
+						<h1>Editar perfil de <%=@user.name%></h1>
+					</header>
 				</div>
 			</section>
 		<%end%>
