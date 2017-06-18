@@ -20,7 +20,7 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
-  <%= f.select :specialty_id, @specialties.collect {|specialty| [specialty.title, specialty.id]},{:include_blank => '<span>Seleccione su especialidad principal</span>'.html_safe}, { :class => 'dropdown', :required => true } %>
+  <%= f.select :specialty_id, @specialties.collect {|specialty| [specialty.title, specialty.id]},{:include_blank => '<span>Seleccione su especialidad principal</span>'.html_safe}, {:required => true } %>
   </div>
   <div class="actions">
     <%= f.submit %>

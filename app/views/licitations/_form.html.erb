@@ -1,0 +1,31 @@
+<p> LICITACION DE <%=@demand.title%> </p>
+<%= form_for(@licitation) do |f| %>
+	<% if @licitation.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@licitation.errors.count, "error") %> prohibited this licitation from being saved:</h2>
+
+			<ul>
+			<% @licitation.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<div class="field">
+		<%= f.number_field :mount, :placeholder=>'Precio del Trabajo' %>
+	</div>
+	<div class="field">
+		<%= f.text_area :description, :placeholder=>'Descripción' %>
+	</div>
+	<div class="field">
+		<%= f.datetime_select :start_time, :placeholder=>'Fecha de inicio estimada' %>
+	</div>
+	<div class="field">
+		<%= f.datetime_select :end_time, :placeholder=>'Fecha de término estimada' %>
+	</div>
+		<%= f.hidden_field :demand_id, :value=>@demand.id %><br>
+	<div class="actions">
+		<%= f.submit "Generar licitación", :class=>'button special btn-fit' %>
+	</div>
+<% end %>

@@ -12,7 +12,7 @@
 		</div>
 
 		<div class="12u$">
-			<%= f.select :specialty_id, @specialties.collect {|specialty| [specialty.title, specialty.id]},{:include_blank => '<span>Seleccione su especialidad principal</span>'.html_safe}, {:required => true, :class=>'wrapper-dropdown-3 12u$'} %>
+			<%= f.select :specialty_id, @specialties.collect {|specialty| [specialty.title, specialty.id]},{:include_blank => '<span>Seleccione su especialidad principal</span>'.html_safe}, {:required => true} %>
 
 		</div>
 

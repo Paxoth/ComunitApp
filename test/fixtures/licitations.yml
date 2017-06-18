@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mount: 1
+  description: MyText
+  start_time: 2017-06-17 20:40:54
+  end_time: 2017-06-17 20:40:54
+  user_id: 
+  demand_id: 
+
+two:
+  mount: 1
+  description: MyText
+  start_time: 2017-06-17 20:40:54
+  end_time: 2017-06-17 20:40:54
+  user_id: 
+  demand_id: 

@@ -4,9 +4,11 @@
 			<div class="field">
 				<%= f.text_field :name, :placeholder=>'Nombre' %>
 			</div>
-			<div class="field">
-				<%= f.text_field :address, :placeholder=>'Dirección' %>
-			</div>
+			<%if current_user.category==1%>
+				<div class="field">
+					<%= f.text_field :address, :placeholder=>'Dirección' %>
+				</div>
+			<%end%>
 			<div class="field">
 				<%= f.text_area :description, :placeholder=>'Escribe algo sobre tí' %>
 			</div>

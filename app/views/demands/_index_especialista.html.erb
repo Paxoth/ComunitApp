@@ -1,0 +1,50 @@
+<div class="table-wrapper">
+	<table>
+		<thead>
+			<tr>
+				<th>Nombre Demanda</th>
+				<th>Servicio</th>
+				<th>Estado</th>
+				<th>Tipo</th>				
+				<th>Publicada</th>
+				<th>Información</th>
+			</tr>
+		</thead>
+		<tbody>
+			<%@demands.each do |demand|%>
+				<%if demand.service.specialty == current_user.specialty%>
+					<%if demand.status==1 || demand.status == 2%>
+						<tr>
+							<td><%=demand.title%></td>
+							<td><%= demand.service.title %></td>
+							<td>
+								<%if demand.status == 0%>
+									Generación
+								<% elsif demand.status == 1%>
+									Visita a terreno
+								<% elsif demand.status == 2%>
+									En proceso de licitación
+								<% elsif demand.status == 3%>
+									Decisión de un especialista
+								<% elsif demand.status == 4%>
+									Trabajo
+								<% elsif demand.status == 5%>
+									Finalizado
+								<%end%>																
+							</td>
+							<td>
+								<%if demand.demand_type == 0%>
+									Pública
+								<% else%>
+									Privada
+								<%end%>																
+							</td>
+							<td><%= demand.created_at %></td>
+							<td><%= link_to "ver", demand, :class=>'button' %></td>
+						</tr>
+					<%end%>
+				<%end%>
+			<%end%>
+		</tbody>
+	</table>
+</div>

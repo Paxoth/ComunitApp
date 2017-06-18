@@ -18,7 +18,9 @@
 		<%end%>
 		<center>
 			<ul class="actions">
-				<li><%= link_to "Unirse a una comunidad", {:controller => "users", :action => "community", :id => current_user},:class=>'button ' %></li>
+				<%if current_user.category==1%>
+					<li><%= link_to "Unirse a una comunidad", {:controller => "users", :action => "community", :id => current_user},:class=>'button ' %></li>
+				<%end%>
 				<li><%=link_to "Cambiar datos", edit_user_path(current_user),:action=>'edit', :class=>'button special'%></li>
 			</ul>
 		</center>

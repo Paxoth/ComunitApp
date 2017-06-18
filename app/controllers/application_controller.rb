@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 	protect_from_forgery with: :exception
 	before_action :set_publications
 	before_action :set_specialties
+	before_action :set_demands
 
 	def set_publications
 		@publications = Publication.all
@@ -11,5 +12,9 @@ class ApplicationController < ActionController::Base
 
 	def set_specialties
 		@specialties = Specialty.all
+	end
+
+	def set_demands
+		@demands = Demand.all
 	end
 end

@@ -138,14 +138,22 @@
 					<h3>Mis Datos</h3>
 				</header>
 				<p><strong>
-					<%=current_user.specialty.title%>: 	<%=current_user.name%>
+					<%if current_user.specialty == 1%>
+						Gásfiter:
+					<%else%>
+						Constructor:
+					<%end%>	<%=current_user.name%>
 				</strong></p>
 				<center><%=image_tag("evaluacion.png",:id=>"evaluacion", :data=>{:position=>"center center"}) %></p>
-				<p><i>"Me siento capacita sNullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus."</i></p></center>
+				<%if current_user.description.present?%>
+					<p><i>"<%=current_user.description%>"</i></p></center>
+				<%end%>
+				
 				
 				<center>
 					<ul class="actions">
-						<li><a href="#" class="button">Modificar tus datos</a></li>
+						<li><%=link_to "ver perfil", current_user, :class=>'button special btn-fit'%></li>
+						<li><%=link_to "Cambiar datos", edit_user_path(current_user),:action=>'edit', :class=>'button  btn-fit'%></li>
 					</ul>
 				</center>
 			</div>
@@ -160,13 +168,20 @@
 				<header class="major">
 					<h3>Demandas disponibles</h3>
 				</header>
-				<p>Actualmente hay <strong>4</strong> demandas en tus comunas preferidas</p>
-				<p>Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</p>
-				
+				<p>Actualmente hay <strong>
+					<%@count_demand = 0%>
+					<%@demands.each do |demand|%>
+						<%if demand.service.specialty == current_user.specialty%>
+							<%if demand.status==1 || demand.status == 2%>
+								<%@count_demand = @count_demand+1%>
+							<%end%>
+						<%end%>
+					<%end%>
+					<%=@count_demand%> </strong> demandas que te podrían interesar</p>			
 				<center>
 					<ul class="actions">
-						<li><a href="especialista_lista_demandas.html" class="button">Ver demandas</a></li>
-						<li><a href="#" class="button">Ver calendario</a></li>
+						<%=link_to "Ver demandas", demands_path, :class=>"button"%>
+						<%=link_to "Ver calendario", root_path, :class=>"button"%>
 					</ul>
 				</center>
 			</div>
@@ -174,17 +189,3 @@
 	</section>
 
 </section>
-
-<!-- Three -->
-<section id="three">
-	<div class="inner">
-		<header class="major">
-			<h2>Massa libero</h2>
-		</header>
-		<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus.</p>
-		<ul class="actions">
-			<li><a href="#" class="button next">Más información</a></li>
-		</ul>
-	</div>
-</section>
-

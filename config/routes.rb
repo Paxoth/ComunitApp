@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :licitations
 	resources :communities
 	resources :demands
 	resources :services

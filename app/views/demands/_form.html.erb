@@ -23,7 +23,7 @@
 		</div>
 
 		<div class="12u$">
-			<%= f.select :service_id, @services.collect {|service| [service.specialty.title+': '+service.title, service.id]},{:include_blank => '<span>Seleccione el servicio que requiere</span>'.html_safe}, {:required => true, :class=>'wrapper-dropdown-3 12u$'} %>
+			<%= f.select :service_id, @services.collect {|service| [service.specialty.title+': '+service.title, service.id]},{:include_blank => '<span>Seleccione el servicio que requiere</span>'.html_safe}, {:required => true, :style=> 'width: 100%;'} %>
 		</div>​
 
 
@@ -43,13 +43,15 @@
 			</ul>
 		</div>
 		<div class="6u 12u$(small)">
-			<%= f.text_field :start_date, :placeholder=>"Fecha y hora estimada de inicio" %>
-		</div>		
-
-		<div class="6u 12u$(small)">
 			<%= f.check_box :status, {}, 1, 2 %>
 			<%= f.label :status, '¿Visita a Tereno?' %>
 		</div>
+
+		<div class="12u 12u$(small)">
+			<%= f.label :start_date, "Fecha estimada de inicio de trabajo"%>
+			<%= f.datetime_select :start_date, :placeholder=>"Fecha y hora estimada de inicio" %>
+		</div>		
+
 
 
 		<div class="12u$">

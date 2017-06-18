@@ -1,0 +1,52 @@
+<div class= "12u$(medium)">
+	<div class="table-wrapper">
+		<table>
+			<tbody>
+				<tr>
+					<td><strong>Fecha de publicación: </strong></td>
+					<td><%=l @demand.created_at%></td>
+				</tr>
+				<tr>
+					<td><strong>Estado:</strong></td>
+					<td><%=@demand.status%></td>
+				</tr>
+				<tr>
+					<td><strong>Tipo de demada</strong></td>
+					<td>
+						<% if @demand.demand_type == 0%>
+							Pública para la comunidad <%=@demand.community.name%>
+						<%else%>
+							Privada
+						<%end%>								
+					</td>
+				</tr>
+				<tr><p><center><i>"<%=@demand.description%>"</i>- <%=@demand.user.name%></center></p></tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+	
+<h2 id="content">Más información</h2>
+<div class="row">
+	<div class="6u 12u$(small)">
+		<h3>Solicitantes unidos a la demanda</h3>
+
+		<ul class="alt">
+			<li><a href="#" class="icon fa-github"></a> Katerin Liberola</li>
+			<li><a href="#" class="icon fa-github"></a> Máximo Pérez</li>
+			<li><a href="#" class="icon fa-github"></a> Cristian DiskJoker</li>
+			<li><a href="#" class="icon fa-github"></a> Juan Hayashi</li>
+			<li><a href="#" class="icon fa-github"></a> Nelson Jeldes</li>
+		</ul>
+	</div>
+	<div class="6u$ 12u$(small)">
+		<h3>Mapa de la demanda</h3>
+		<span class="image fit"><img src="images/Mapa.png" style="max-height: 300px;" alt="" /></span>
+	</div>
+</div>
+<center>
+	<ul class="actions">
+		<li><%= link_to "Participar de la licitación", {:controller => "licitations", :action => "new", :id => @demand},:class=>'button special' %>
+		</li>
+	</ul>
+</center>

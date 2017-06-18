@@ -1,0 +1,143 @@
+<div class="row">
+	<div class="8u 12u$(small)">
+		<h3>Demandas creadas por tí</h3>
+		<%if @demands.present?%>
+			<div class="table-wrapper">
+				<table>
+					<thead>
+						<tr>
+							<th>Nombre Demanda</th>
+							<th>Especialidad</th>
+							<th>Servicio</th>
+							<th>Estado</th>
+							<th>Tipo</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @demands.each do |demand| %>
+						 	<%if demand.user == current_user%>
+								<tr>
+									<td><%=demand.title%><%= link_to "ver", demand, :class=>'button' %></td>
+									<td><%= demand.service.specialty.title %></td>
+									<td><%= demand.service.title %></td>
+									<td>
+										<%if demand.status == 0%>
+											Generación
+										<% elsif demand.status == 1%>
+											Visita a terreno
+										<% elsif demand.status == 2%>
+											En proceso de licitación
+										<% elsif demand.status == 3%>
+											Decisión de un especialista
+										<% elsif demand.status == 4%>
+											Trabajo
+										<% elsif demand.status == 5%>
+											Finalizado
+										<%end%>																
+									</td>
+									<td>
+										<%if demand.demand_type == 0%>
+											Pública
+										<% else%>
+											Privada
+										<%end%>																
+									</td>
+								</tr>
+							<%end%>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+		<%else%>
+			<div class="panel panel-default panel-comunitApp">
+				<div class="panel-heading text-uppercase">
+					No has generado ninguna demanda
+				</div>
+				<div class="panel-body">
+					<p>Recuerda que puedes generar tus propias demandas o ver demandas de tu comunidad para unirte a ellas. Las demandas pueden ser publicas para que tu comunidad las vea o privadas hacer solicitudes personales</p>
+				</div>
+			</div>
+		<%end%>		
+	</div>
+	<div class="4u$ 12u$(small)">
+		<div class="panel panel-default panel-comunitApp">
+			<div class="panel-heading text-uppercase">
+				¿Quieres generar una nueva demanda?
+			</div>
+			<div class="panel-body">
+				<p><%=@publications.second.body%></p>
+				<%=link_to "Generar demanda", new_demand_path, :class=>"button"%>
+			</div>
+		</div>
+	</div>
+</div>
+
+<hr class="major" />
+
+<div class="row">
+	<div class="4u 12u$(small)">
+		<div class="panel panel-default panel-comunitApp">
+			<div class="panel-heading text-uppercase">
+				¿No sabes si generar una demanda?
+			</div>
+			<div class="panel-body">
+				<p>O ¿No quieres hacerla solo? Puedes revisar las demandas de tu comunidad y si quieres te unes a ella o crear una de forma pública</p>
+				<%=link_to "Generar demanda", new_demand_path, :class=>"button"%>
+			</div>
+		</div>
+	</div>
+	<div class="8u$ 12u$(small)">
+		<h3>Demandas públicas de la comunidad <%=current_user.community.name%></h3>
+		<%if @demands.present?%>
+			<div class="table-wrapper">
+				<table>
+					<thead>
+						<tr>
+							<th>Nombre Demanda</th>
+							<th>Especialidad</th>
+							<th>Servicio</th>
+							<th>Estado</th>
+							<th>Creador</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @demands.each do |demand| %>
+							<%if demand.community == current_user.community and demand.user != current_user%>
+								<tr>
+									<td><%= demand.title %></td>
+									<td><%= demand.service.specialty.title %></td>
+									<td><%= demand.service.title %></td>
+									<td>
+										<%if demand.status == 0%>
+											Generación
+										<% elsif demand.status == 1%>
+											Visita a terreno
+										<% elsif demand.status == 2%>
+											En proceso de licitación
+										<% elsif demand.status == 3%>
+											Decisión de un especialista
+										<% elsif demand.status == 4%>
+											Trabajo
+										<% elsif demand.status == 5%>
+											Finalizado
+										<%end%>																
+									</td>
+									<td><%= demand.user.name%></td>
+								</tr>
+							<%end%>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+		<%else%>
+			<div class="panel panel-default panel-comunitApp">
+				<div class="panel-heading text-uppercase">
+					No has generado ninguna demanda
+				</div>
+				<div class="panel-body">
+					<p>Recuerda que puedes generar tus propias demandas o ver demandas de tu comunidad para unirte a ellas. Las demandas pueden ser publicas para que tu comunidad las vea o privadas hacer solicitudes personales</p>
+				</div>
+			</div>
+		<%end%>		
+	</div>
+</div>
