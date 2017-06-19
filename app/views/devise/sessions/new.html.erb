@@ -3,8 +3,7 @@
 		<div class="row 200%">
 			<div class="6u 12u$(medium)">
 			<h3>Ingresa</h3>
-			<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-
+			<p>¡ComunitApp, todos ganan!</p>
 			<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 				<div class="row uniform">
 					<div class="6u 12u$(xsmall)">
@@ -35,11 +34,12 @@
 			</div>
 			<div class="6u$ 12u$(medium)">
 				<h3>Registrate</h3>
-				<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
 
 				<%if(params[:type]=='0')%> 
+					<p>Regístrate como especialista y consigue más trabajos</p>
 					<%= render 'partials/registration/especialista'%>		
 				<%else%>
+					<p>Registrate como solicitante, soluciona tu problema y cumple tu deseo</p>
 					<%= render "partials/registration/solicitante" %>
 				<%end%>
 
