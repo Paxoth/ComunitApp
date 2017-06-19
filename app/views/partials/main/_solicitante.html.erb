@@ -18,8 +18,8 @@
 				
 				<center>
 					<ul class="actions">
-						<li><%=link_to "ver perfil", current_user, :class=>'button special btn-fit'%></li>
-						<li><%=link_to "Cambiar datos", edit_user_path(current_user),:action=>'edit', :class=>'button  btn-fit'%></li>
+						<%=link_to "ver perfil", current_user, :class=>'button special btn-fit'%>
+						<%=link_to "Cambiar datos", edit_user_path(current_user),:action=>'edit', :class=>'button  btn-fit'%>
 					</ul>
 				</center>
 			</div>
@@ -39,8 +39,8 @@
 								
 				<center>
 					<ul class="actions">
-						<%=link_to "Ver demandas", demands_path, :class=>"button"%>
-						<%=link_to "Generar una solicitud", new_demand_path, :class=>"button special"%>
+						<%=link_to "Ver demandas", demands_path, :class=>"button btn-fit"%>
+						<%=link_to "Generar solicitud", new_demand_path, :class=>"button special btn-fit"%>
 
 					</ul>
 				</center>
@@ -62,7 +62,7 @@
 				<center>
 					<ul class="actions">
 						<li>
-							<%= link_to "Unirse a una comunidad", {:controller => "users", :action => "community", :id => current_user},:class=>'button ' %>
+							<%= link_to "Unirse a una comunidad", {:controller => "users", :action => "community", :id => current_user},:class=>'button btn-fit-max' %>
 						</li>
 					</ul>
 				</center>

@@ -3638,7 +3638,7 @@
 				padding: 5em 0 1em 0 ;
 				height: auto;
 				margin-bottom: -2.75em;
-				max-height: 200px;
+				max-height: 400px;
 				min-height: 0;
 				top: -2.75em;
 			}
@@ -4063,7 +4063,17 @@
 	max-width: 80%;
 }
 .btn-fit{
-	width: 250px;
+	width: 240px;
+	max-width: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+.btn-fit-max{
+	width: 340px;
+	max-width: 90%;
+	margin-left: 5%;
+	margin-right: 5%;
 }
 .menulogo{
 	width: 60%; 
@@ -4080,7 +4090,8 @@
 	background: none;
 	text-align: center;
 	margin-left: 2.5%;
-	min-width:  340px;
+
+	min-width:  120px;
 	border-radius: 0 0 0 0;
 }
 .panel-comunitApp .panel-heading

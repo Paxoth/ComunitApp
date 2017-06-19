@@ -152,8 +152,8 @@
 				
 				<center>
 					<ul class="actions">
-						<li><%=link_to "ver perfil", current_user, :class=>'button special btn-fit'%></li>
-						<li><%=link_to "Cambiar datos", edit_user_path(current_user),:action=>'edit', :class=>'button  btn-fit'%></li>
+						<%=link_to "ver perfil", current_user, :class=>'button special btn-fit'%>
+						<%=link_to "Cambiar datos", edit_user_path(current_user),:action=>'edit', :class=>'button  btn-fit'%>
 					</ul>
 				</center>
 			</div>
@@ -180,8 +180,8 @@
 					<%=@count_demand%> </strong> demandas que te podrían interesar</p>			
 				<center>
 					<ul class="actions">
-						<%=link_to "Ver demandas", demands_path, :class=>"button"%>
-						<%=link_to "Ver calendario", root_path, :class=>"button"%>
+						<%=link_to "Ver demandas", demands_path, :class=>"button btn-fit"%>
+						<%=link_to "Ver calendario", root_path, :class=>"button special btn-fit"%>
 					</ul>
 				</center>
 			</div>
