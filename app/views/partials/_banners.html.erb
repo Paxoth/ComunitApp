@@ -82,6 +82,17 @@
 						</div>
 					<%end%>
 				</div>
+			</section>		
+		<%elsif(controller.controller_name=="licitations" and controller.action_name == "new")%>
+			<section id="banner" class="style1">
+				<div class="inner">
+					<header class="major">
+						<h1>¡Licitación de <%=@demand.title%>!</h1>
+					</header>
+					<div class="content">
+						<p>¡Ingresa la siguiente información para que las puedan leer los solicitantes!</p>
+					</div>
+				</div>
 			</section>
 		<%end%>
 	<!--Solicitantes-->
