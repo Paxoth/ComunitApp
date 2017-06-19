@@ -8,7 +8,21 @@
 				</tr>
 				<tr>
 					<td><strong>Estado:</strong></td>
-					<td><%=@demand.status%></td>
+					<td>
+						<%if @demand.status == 0%>
+							Generación de la demanda
+						<% elsif @demand.status == 1%>
+							Visita a terreno
+						<% elsif @demand.status == 2%>
+							En proceso de licitación
+						<% elsif @demand.status == 3%>
+							Elección de un maestro especialista
+						<% elsif @demand.status == 4%>
+							En estado de realización de Trabajo
+						<% elsif @demand.status == 5%>
+							Trabajo Finalizado
+						<%end%>																
+					</td>
 				</tr>
 				<tr>
 					<td><strong>Tipo de demada</strong></td>
@@ -25,31 +39,48 @@
 		</table>
 	</div>
 </div>
-	
-<h2 id="content">Más información</h2>
-<div class="row">
-	<div class="6u 12u$(small)">
-		<h3>Solicitantes unidos a la demanda</h3>
 
-		<ul class="alt">
-			<li><a href="#" class="icon fa-github"></a> Katerin Liberola</li>
-			<li><a href="#" class="icon fa-github"></a> Máximo Pérez</li>
-			<li><a href="#" class="icon fa-github"></a> Cristian DiskJoker</li>
-			<li><a href="#" class="icon fa-github"></a> Juan Hayashi</li>
-			<li><a href="#" class="icon fa-github"></a> Nelson Jeldes</li>
-		</ul>
+<%if @demand.demand_type==0%>
+	<div class="row">
+		<div class="6u 12u$(small)">
+			<h3>Solicitantes unidos a la demanda</h3>
+
+			<ul class="alt">
+				<%@confirmador=0%>
+				<%if @demand.public_demands.present?%>
+					<%@demand.public_demands.each do |public_demand|%>
+						<li><a href="#" class="icon fa-github"></a> <%=public_demand.user.name%></li>
+						<%if public_demand.user == current_user%>
+							<%@confirmador=1%>
+						<%end%>
+					<%end%>
+				<%else%>
+					<div class="panel panel-default panel-comunitApp">
+						<div class="panel-heading text-uppercase">
+							Nadie se ha unido
+						</div>
+						<div class="panel-body">
+							Al parecer todavía nadie se ha unido a la demanda comunitaria
+						</div>
+					</div>
+				<%end%>
+			</ul>
+		</div>
+		<div class="6u$ 12u$(small)">
+			<h3>Mapa de la demanda</h3>
+			<span class="image fit"><%=image_tag("Mapa.png", :style=>"max-height: 300px;") %></span>
+		</div>
 	</div>
-	<div class="6u$ 12u$(small)">
-		<h3>Mapa de la demanda</h3>
-		<span class="image fit"><img src="images/Mapa.png" style="max-height: 300px;" alt="" /></span>
-	</div>
-</div>
-<center>
-	<ul class="actions">
-		<li><a href="solicitante_perfil_demanda_2.html" class="button">Unirse a la demanda</a></li>
-	</ul>
-</center>
-<hr class="major" />
+	<%if @confirmador==0 && current_user.community == @demand.user.community%>
+		<center>
+			<ul class="actions">
+				<li><%= link_to "Unirse a la demanda", public_demands_path({:user_id => current_user.id, :demand_id => @demand.id}), :method => :post,:class=>'button special' %></li>
+			</ul>
+		</center>
+	<%end%>
+<%end%>
+
+
 <div class= "12u$(medium)">
 	<h3>Cotización de especialistas</h3>
 	<%if @demand.licitations.present?%>
@@ -67,7 +98,7 @@
 						<tr>
 							<td><%=licitation.user.name%></td>
 							<td><%=licitation.mount%></td>
-							<td><%link_to "Ver", licitation, :class=>'button'%></td>
+							<td><%=link_to "Ver", licitation, :class=>'button'%></td>
 						</tr>
 					<%end%>
 				</tbody>
@@ -75,7 +106,7 @@
 		</div>
 	<%else%>
 		<div class="panel panel-default panel-comunitApp">
-			<div class="panel-heading">
+			<div class="panel-heading text-uppercase">
 				Actualmente no hay cotizaciones
 			</div>
 			<div class="panel-body">

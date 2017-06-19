@@ -18,9 +18,11 @@
 		<%= f.text_area :description, :placeholder=>'Descripción' %>
 	</div>
 	<div class="field">
+		<%= f.label :start_time, "Fecha estimada de inicio"%>
 		<%= f.datetime_select :start_time, :placeholder=>'Fecha de inicio estimada' %>
 	</div>
 	<div class="field">
+		<%= f.label :end_time, "Fecha estimada de término"%>
 		<%= f.datetime_select :end_time, :placeholder=>'Fecha de término estimada' %>
 	</div>
 		<%= f.hidden_field :demand_id, :value=>@demand.id %><br>

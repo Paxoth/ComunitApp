@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @public_demand.user %>
+</p>
+
+<p>
+  <strong>Demand:</strong>
+  <%= @public_demand.demand %>
+</p>
+
+<%= link_to 'Edit', edit_public_demand_path(@public_demand) %> |
+<%= link_to 'Back', public_demands_path %>

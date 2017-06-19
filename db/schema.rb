@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170618004054) do
+ActiveRecord::Schema.define(version: 20170619030858) do
 
   create_table "communities", force: :cascade do |t|
     t.string   "name",           limit: 255
@@ -52,6 +52,16 @@ ActiveRecord::Schema.define(version: 20170618004054) do
 
   add_index "licitations", ["demand_id"], name: "index_licitations_on_demand_id", using: :btree
   add_index "licitations", ["user_id"], name: "index_licitations_on_user_id", using: :btree
+
+  create_table "public_demands", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "demand_id",  limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "public_demands", ["demand_id"], name: "index_public_demands_on_demand_id", using: :btree
+  add_index "public_demands", ["user_id"], name: "index_public_demands_on_user_id", using: :btree
 
   create_table "publications", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -115,6 +125,8 @@ ActiveRecord::Schema.define(version: 20170618004054) do
   add_foreign_key "demands", "users"
   add_foreign_key "licitations", "demands"
   add_foreign_key "licitations", "users"
+  add_foreign_key "public_demands", "demands"
+  add_foreign_key "public_demands", "users"
   add_foreign_key "services", "specialties"
   add_foreign_key "users", "communities"
   add_foreign_key "users", "specialties"

@@ -8,7 +8,21 @@
 				</tr>
 				<tr>
 					<td><strong>Estado:</strong></td>
-					<td><%=@demand.status%></td>
+					<td>
+						<%if @demand.status == 0%>
+							Generación de la demanda
+						<% elsif @demand.status == 1%>
+							Visita a terreno
+						<% elsif @demand.status == 2%>
+							En proceso de licitación
+						<% elsif @demand.status == 3%>
+							Elección de un maestro especialista
+						<% elsif @demand.status == 4%>
+							En estado de realización de Trabajo
+						<% elsif @demand.status == 5%>
+							Trabajo Finalizado
+						<%end%>																
+					</td>
 				</tr>
 				<tr>
 					<td><strong>Tipo de demada</strong></td>
@@ -26,27 +40,62 @@
 	</div>
 </div>
 	
-<h2 id="content">Más información</h2>
-<div class="row">
-	<div class="6u 12u$(small)">
-		<h3>Solicitantes unidos a la demanda</h3>
+<%if @demand.demand_type==0%>
+	<div class="row">
+		<div class="6u 12u$(small)">
+			<h3>Solicitantes unidos a la demanda</h3>
+			<ul class="alt">
+				<%if @demand.public_demands.present?%>
+					<%@demand.public_demands.each do |public_demand|%>
+						<li><a href="#" class="icon fa-github"></a> <%=public_demand.user.name%></li>
+					<%end%>
+				<%else%>
+					<div class="panel panel-default panel-comunitApp">
+						<div class="panel-heading text-uppercase">
+							Nadie se ha unido
+						</div>
+						<div class="panel-body">
+							Al parecer todavía nadie se ha unido a la demanda comunitaria
+						</div>
+					</div>
+				<%end%>
+			</ul>
+		</div>
+		<div class="6u$ 12u$(small)">
+			<h3>Mapa de la demanda</h3>
+			<span class="image fit"><%=image_tag("Mapa.png", :style=>"max-height: 300px;") %></span>
 
-		<ul class="alt">
-			<li><a href="#" class="icon fa-github"></a> Katerin Liberola</li>
-			<li><a href="#" class="icon fa-github"></a> Máximo Pérez</li>
-			<li><a href="#" class="icon fa-github"></a> Cristian DiskJoker</li>
-			<li><a href="#" class="icon fa-github"></a> Juan Hayashi</li>
-			<li><a href="#" class="icon fa-github"></a> Nelson Jeldes</li>
+		</div>
+	</div>
+<%end%>
+<%@licitado=0%>
+<%@demand.licitations.each do |licitation| %>
+	<%if licitation.user == current_user%>
+		<%@licitado=1%>
+		<h3>¡Ya has postulado!</h3>
+		<div class="table-wrapper">
+			<table>
+				<thead>
+					<tr>
+						<th>Descripción</th>
+						<th>Precio por el trabajo [CLP]</th>
+					</tr>
+				</thead>
+				<tbody>	
+					<tr>
+						<td><%=licitation.description%></td>
+						<td><%=licitation.mount%></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	<%end%>
+<%end%>
+<%if @licitado==0%>
+	<center>
+		<ul class="actions">
+			<li><%= link_to "Participar de la licitación", {:controller => "licitations", :action => "new", :id => @demand},:class=>'button special' %>
+			</li>
 		</ul>
-	</div>
-	<div class="6u$ 12u$(small)">
-		<h3>Mapa de la demanda</h3>
-		<span class="image fit"><img src="images/Mapa.png" style="max-height: 300px;" alt="" /></span>
-	</div>
-</div>
-<center>
-	<ul class="actions">
-		<li><%= link_to "Participar de la licitación", {:controller => "licitations", :action => "new", :id => @demand},:class=>'button special' %>
-		</li>
-	</ul>
-</center>
+	</center>
+<%end%>

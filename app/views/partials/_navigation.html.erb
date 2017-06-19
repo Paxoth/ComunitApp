@@ -6,14 +6,23 @@
 </header>
 <nav id="menu">
 	<%=image_tag("logoComunitApp.png", :class=>"menulogo") %>
-	<ul class="links">
-		<li><a href="index.html">Inicio</a></li>
-		<li><a href="solicitante_login.html">Solicitantes</a></li>
-		<li><a href="especialista_login.html">Especialistas</a></li>
-		<li><a href="#">Sobre ComunitApp</a></li>
-	</ul>
-	<ul class="actions vertical">
-		<li><a href="solicitante_login.html" class="button special fit">Comienza como solicitante</a></li>
-		<li><a href="especialista_login.html" class="button fit">Comienza como especialista</a></li>
-	</ul>						
+	<%if user_signed_in?%>
+		<ul class="links">
+			<li><%=link_to "Inicio", root_path%></li>
+			<li><%=link_to "Mi perfil", current_user%></li>
+			<li><%=link_to "Ver demandas", demands_path%></li>
+			<%if current_user.category == 1%>
+				<li><%=link_to "Nueva solicitud", new_demand_path%></li>
+				<li><%= link_to "Unirse a una comunidad", {:controller => "users", :action => "community", :id => current_user}%></li>
+			<%end%>
+		</ul>
+		<ul class="actions vertical">
+			<li><%= link_to "Desconectarse", destroy_user_session_path, :method => :delete,:class=>'button special' %></li>
+		</ul>
+	<%else%>
+		<ul class="actions vertical">
+			<li><%=link_to "Inicia como especialista",user_session_path(:type=>0),:class=>'button special'%></li>
+			<li><%=link_to "Inicia como solicitante",user_session_path(:type=>1),:class=>'button' %></li>
+		</ul>
+	<%end%>							
 </nav>

@@ -28,7 +28,7 @@ class LicitationsController < ApplicationController
 		@licitation = current_user.licitations.new(licitation_params)
 		respond_to do |format|
 			if @licitation.save
-				format.html { redirect_to @licitation, notice: 'Licitation was successfully created.' }
+				format.html { redirect_to @licitation.demand, notice: 'Licitation was successfully created.' }
 				format.json { render :show, status: :created, location: @licitation }
 			else
 				format.html { render :new }

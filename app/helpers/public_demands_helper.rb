@@ -1,0 +1,2 @@
+module PublicDemandsHelper
+end

@@ -7,18 +7,17 @@
 					<thead>
 						<tr>
 							<th>Nombre Demanda</th>
-							<th>Especialidad</th>
 							<th>Servicio</th>
 							<th>Estado</th>
 							<th>Tipo</th>
+							<th>Detalles</th>
 						</tr>
 					</thead>
 					<tbody>
 						<% @demands.each do |demand| %>
 						 	<%if demand.user == current_user%>
 								<tr>
-									<td><%=demand.title%><%= link_to "ver", demand, :class=>'button' %></td>
-									<td><%= demand.service.specialty.title %></td>
+									<td><%=demand.title%></td>
 									<td><%= demand.service.title %></td>
 									<td>
 										<%if demand.status == 0%>
@@ -26,9 +25,9 @@
 										<% elsif demand.status == 1%>
 											Visita a terreno
 										<% elsif demand.status == 2%>
-											En proceso de licitación
+											Licitación
 										<% elsif demand.status == 3%>
-											Decisión de un especialista
+											Elección
 										<% elsif demand.status == 4%>
 											Trabajo
 										<% elsif demand.status == 5%>
@@ -42,6 +41,7 @@
 											Privada
 										<%end%>																
 									</td>
+									<td><%= link_to "ver", demand, :class=>'button' %></td>
 								</tr>
 							<%end%>
 						<% end %>
@@ -94,10 +94,10 @@
 					<thead>
 						<tr>
 							<th>Nombre Demanda</th>
-							<th>Especialidad</th>
 							<th>Servicio</th>
 							<th>Estado</th>
 							<th>Creador</th>
+							<th>Detalles</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -105,7 +105,6 @@
 							<%if demand.community == current_user.community and demand.user != current_user%>
 								<tr>
 									<td><%= demand.title %></td>
-									<td><%= demand.service.specialty.title %></td>
 									<td><%= demand.service.title %></td>
 									<td>
 										<%if demand.status == 0%>
@@ -113,9 +112,9 @@
 										<% elsif demand.status == 1%>
 											Visita a terreno
 										<% elsif demand.status == 2%>
-											En proceso de licitación
+											Licitación
 										<% elsif demand.status == 3%>
-											Decisión de un especialista
+											Decisión
 										<% elsif demand.status == 4%>
 											Trabajo
 										<% elsif demand.status == 5%>
@@ -123,6 +122,7 @@
 										<%end%>																
 									</td>
 									<td><%= demand.user.name%></td>
+									<td><%= link_to "ver", demand, :class=>'button' %></td>
 								</tr>
 							<%end%>
 						<% end %>

@@ -53,6 +53,12 @@ community_list = [
 specialist_list = [
 	['UserGasfiter','gasfiter@comunitapp.cl','comunitapp123',0,1],
 	['UserConstructor','constructor@comunitapp.cl','comunitapp123',0,2],
+	['Peter Parker','gasfiter2@comunitapp.cl','comunitapp123',0,1],
+	['Steven Strange','gasfiter3@comunitapp.cl','comunitapp123',0,1],
+	['Tony Stark','gasfiter4@comunitapp.cl','comunitapp123',0,1],
+	['Bruce Banner','constructor2@comunitapp.cl','comunitapp123',0,2],
+	['Scott Summers','constructor3@comunitapp.cl','comunitapp123',0,2],
+	['Jean Grey','constructor4@comunitapp.cl','comunitapp123',0,2]
 ]
 #[nombre,mail,contraseña,categoria,dirección,communiti_id] Por mientrsa cada usuario pertenece solo a una comunidad.
 applicant_list = [ #<- usuarios solicitantes
@@ -81,7 +87,7 @@ publication_list = [
 # => 1: privada
 # [Nombre, descripcion, estado, demand_type,service_ide,community_id]
 demands_list = [
-	['Demanda pública 1', 'Demanda publica 1 uno creada con el seed',1,0,3,1,1],
+	['Tuberías para mi nueva casa', 'Demanda publica 1 uno creada con el seed',1,0,3,1,1],
 	['Demanda pública 2', 'Demanda publica 2 uno creada con el seed',2,0,4,16,1],
 	['Demanda pública 3', 'Demanda publica 3 uno creada con el seed',1,0,5,2,2],
 	['Demanda pública 4', 'Demanda publica 4 uno creada con el seed',2,0,6,10,2],

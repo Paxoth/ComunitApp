@@ -6,5 +6,6 @@ class User < ActiveRecord::Base
 	belongs_to :community
 	has_many :demands
 	has_many :licitations
+	has_many :public_demands
 	
 end

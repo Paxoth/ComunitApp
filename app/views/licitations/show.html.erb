@@ -1,32 +1,37 @@
-<p>
-  <strong>Mount:</strong>
-  <%= @licitation.mount %>
-</p>
+<section id="one" class="DarkOrangeFont">
+	<div class="inner">
+		<div class="row">
+			<div class="6u 12u$(small)">
+				<h3>Sobre la licitación</h3>
+				<p>
+					<strong>Precio:</strong>
+					<%= @licitation.mount %>
+				</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @licitation.description %>
-</p>
+				<p>
+					<strong>Descripción:</strong>
+					<%= @licitation.description %>
+				</p>
 
-<p>
-  <strong>Start time:</strong>
-  <%= @licitation.start_time %>
-</p>
+				<p>
+					<strong>Fecha estimada de inicio:</strong>
+					<%= @licitation.start_time %>
+				</p>
 
-<p>
-  <strong>End time:</strong>
-  <%= @licitation.end_time %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @licitation.user.name %>
-</p>
-
-<p>
-  <strong>Demand:</strong>
-  <%= @licitation.demand.title %>
-</p>
-
-<%= link_to 'Edit', edit_licitation_path(@licitation) %> |
-<%= link_to 'Back', licitations_path %>
+				<p>
+					<strong>Fecha estimada de término:</strong>
+					<%= @licitation.end_time %>
+				</p>
+			</div>
+			<div class="6u 12u$(small)">
+				<h3>Sobre la demanda</h3>
+				<p>
+					<strong>Demanda:</strong>
+					<%= @licitation.demand.title %>
+				</p>
+				<p>Mapa de la demanda</p>
+				<span class="image fit"><%=image_tag("Mapa.png", :style=>"max-height: 300px;") %></span>
+			</div>
+		</div>
+	</div>
+</section>

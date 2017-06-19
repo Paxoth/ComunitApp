@@ -31,6 +31,8 @@ class DemandsController < ApplicationController
 			if @demand.save
 				if @demand.demand_type == 0
 					@demand.community_id = current_user.community_id
+					@public_demand = PublicDemand.new(:user_id => current_user.id, :demand_id => @demand.id)
+					@public_demand.save
 					@demand.save
 				end
 				format.html { redirect_to @demand, notice: 'Demand was successfully created.' }
