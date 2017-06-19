@@ -52,48 +52,35 @@
 <hr class="major" />
 <div class= "12u$(medium)">
 	<h3>Cotización de especialistas</h3>
-	<div class="table-wrapper">
-		<table>
-			<thead>
-				<tr>
-					<th>Cantidad de votos</th>
-					<th>Nombre Especialista</th>
-					<th>Precio por el trabajo [CLP]</th>
-					<th>Valoración</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>5</td>
-					<td>Rodrigo Torres.</td>
-					<td>1.500.000</td>
-					<td>4.9</td>
-				</tr>
-				<tr>
-					<td>4</td>
-					<td>Luciano Hidalgo.</td>
-					<td>2.000.000</td>
-					<td>4.5</td>
-				</tr>
-				<tr>
-					<td>1</td>
-					<td> Ana Pinto.</td>
-					<td>1.600.000</td>
-					<td>4.2</td>
-				</tr>
-				<tr>
-					<td>0</td>
-					<td>Fernando Segura.</td>
-					<td>1.400.000</td>
-					<td>3.5</td>
-				</tr>
-				<tr>
-					<td>0</td>
-					<td>Andrea Valdevenito.</td>
-					<td>3.550.000</td>
-					<td>4.5</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+	<%if @demand.licitations.present?%>
+		<div class="table-wrapper">
+			<table>
+				<thead>
+					<tr>
+						<th>Nombre Especialista</th>
+						<th>Precio por el trabajo [CLP]</th>
+						<th>Información</th>
+					</tr>
+				</thead>
+				<tbody>
+					<%@demand.licitations.each do |licitation|%>
+						<tr>
+							<td><%=licitation.user.name%></td>
+							<td><%=licitation.mount%></td>
+							<td><%link_to "Ver", licitation, :class=>'button'%></td>
+						</tr>
+					<%end%>
+				</tbody>
+			</table>
+		</div>
+	<%else%>
+		<div class="panel panel-default panel-comunitApp">
+			<div class="panel-heading">
+				Actualmente no hay cotizaciones
+			</div>
+			<div class="panel-body">
+				<p>Ningun maestro ha realizado ningun postulación, pero es solo cosa de tiempo.</p>
+			</div>
+		</div>
+	<%end%>
 </div>
